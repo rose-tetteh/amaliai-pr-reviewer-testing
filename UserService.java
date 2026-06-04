@@ -36,6 +36,7 @@ public class UserService {
     }
 
     public String getUserRole(String userId) {
+        if (userId == null) return "guest";
         if (userId.equals("1")) return "admin";
         if (userId.equals("2")) return "user";
         return "guest";
