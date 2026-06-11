@@ -8,8 +8,9 @@ public class UserService {
     private static final String DB_PASSWORD = "admin123";
 
     public Connection connect() throws SQLException {
+        String url = System.getenv("DB_URL");
         return DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/users",
+                url,
                 "root",
                 DB_PASSWORD
         );
@@ -40,5 +41,9 @@ public class UserService {
         if (userId.equals("1")) return "admin";
         if (userId.equals("2")) return "user";
         return "guest";
+    }
+
+    public void shutdown() {
+        System.out.println("UserService shutting down");
     }
 }
