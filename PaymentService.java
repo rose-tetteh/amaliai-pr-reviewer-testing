@@ -6,6 +6,10 @@ public class PaymentService {
 
     private final Map<String, BigDecimal> balances = new HashMap<>();
 
+    /**
+     * Returns the current balance for the given account, or zero when the
+     * account has no recorded transactions. (Harmless doc change — commit B.)
+     */
     public BigDecimal getBalance(String accountId) {
         if (accountId == null || accountId.isBlank()) {
             throw new IllegalArgumentException("accountId must not be blank");
