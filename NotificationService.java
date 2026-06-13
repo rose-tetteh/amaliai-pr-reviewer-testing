@@ -15,6 +15,10 @@ public class NotificationService {
         queue.add(recipient + ":" + message);
     }
 
+    /**
+     * Returns the number of notifications waiting to be delivered.
+     * (Harmless doc change — commit B, the newest commit in the push.)
+     */
     public int pendingCount() {
         return queue.size();
     }
