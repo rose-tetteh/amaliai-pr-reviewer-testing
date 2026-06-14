@@ -26,4 +26,11 @@ public class OrderService {
         }
         return orders;
     }
+
+    // UNRELATED ADDITION (commit B): a brand-new method appended at the bottom.
+    // It does not touch the SQL injection line above. A correct reviewer should
+    // comment on this new code only — NOT repeat the existing SQL injection comment.
+    public int countOrders(String customerId) {
+        return getOrdersForCustomer(customerId).size();
+    }
 }
